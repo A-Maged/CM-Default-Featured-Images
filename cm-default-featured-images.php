@@ -106,9 +106,15 @@ if (!class_exists('cm_default_thumb')) {
             }
 
             // GET POST TYPE
+            $current_p_type = get_post_type($post_id);
+
             // GET OPTIONS
+            $options = get_option(OPTION_NAME);
+
             // return default img id
-            return 8 ;
+            if (array_key_exists($current_p_type, $options)) {
+                return $options[$current_p_type] ;
+            }
         }
     }
 

@@ -24,7 +24,7 @@ if (!class_exists('cm_default_thumb')) {
             $this->plugin_slug = sanitize_title($this->plugin_name);
 
             add_action('admin_menu', array(&$this, 'register_admin_page'));
-            add_action('admin_enqueue_scripts', array(&$this, 'load_admin_libs'));
+            add_action('admin_enqueue_scripts', array(&$this, 'enqueue_script'));
             add_action('wp_ajax_update_options', array(&$this, 'update_options_ajax'));
             add_filter("get_post_metadata", array(&$this, 'set_default_thumbnail'), 10, 4);
         }
@@ -33,7 +33,7 @@ if (!class_exists('cm_default_thumb')) {
         // register plugin options page and show in admin bar
         // flush rewrite
 
-        public function load_admin_libs()
+        public function enqueue_script()
         {
             wp_enqueue_media();
             
@@ -58,18 +58,14 @@ if (!class_exists('cm_default_thumb')) {
                 'DFI Options',
                 'manage_options',
                 'cm_default_featured_image',
-                [ $this,'admin_index' ],
+                function () {
+                    // admin page template
+                    require_once plugin_dir_path(__FILE__) . 'admin-page.php';
+                },
                 '',
                 110
             );
         }
-
-        // admin page template
-        public function admin_index()
-        {
-            require_once plugin_dir_path(__FILE__) . 'admin-page.php';
-        }
-
 
         public function update_options_ajax()
         {

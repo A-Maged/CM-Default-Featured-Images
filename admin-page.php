@@ -40,14 +40,9 @@ if (is_array($all_options)) {
     }
 }
 
-    dfi_print_row();
+dfi_print_row();
 
 ?>
 
-
-
-
 <button id="dfi-add-row" class="button">add row</button>
-<button id="dfi-save" class="button">save</button>
-
-
+<button id="dfi-save" class="button-primary">save</button>

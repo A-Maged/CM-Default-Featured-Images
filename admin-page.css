@@ -1,6 +1,11 @@
+button {
+	text-transform: capitalize;
+}
+
 #wpbody-content {
 	padding-top: 15px;
 }
+
 .js-dfi-group {
 	padding: 15px 0;
 	vertical-align: top;
@@ -12,4 +17,9 @@
 
 .upload_image_button {
 	cursor: pointer;
+}
+
+#dfi-save {
+	display: block;
+	margin: 20px 0 0;
 }

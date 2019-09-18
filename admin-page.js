@@ -98,7 +98,16 @@ jQuery(function($) {
 				options: values
 			},
 			function(response) {
-				console.log('The server responded: ', response);
+				// show Notice
+				var $wpbodyContent = $('#wpbody-content');
+
+				$wpbodyContent.find('.notice').remove();
+
+				setTimeout(function() {
+					$wpbodyContent.prepend(
+						'<div class="updated notice"><p>' + response.msg + '</p></div>'
+					);
+				}, 300);
 			}
 		);
 	});

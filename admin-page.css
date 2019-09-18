@@ -2,6 +2,9 @@ button {
 	text-transform: capitalize;
 }
 
+.notice {
+	margin: 0 15px 10px 0 !important;
+}
 #wpbody-content {
 	padding-top: 15px;
 }

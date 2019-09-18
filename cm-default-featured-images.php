@@ -78,8 +78,7 @@ if (!class_exists('cm_default_thumb')) {
             update_option(OPTION_NAME, $all);
 
             wp_send_json([
-                '$_post' => $_POST,
-                '$all' => $all
+               'msg' => 'Saved Successfully'
             ]);
         }
         
